@@ -61,6 +61,8 @@
         private function HeadContent(): void {
             $Seo = new SeoController();
             $Seo->InitSeoController();
+            ExternalFileInclude::DesignInclude();
+            ExternalFileInclude::TopJavascript();
         }
 
         private function EndHead() {
@@ -69,6 +71,11 @@
     }
 
     class Body extends SiteGenerator{
+        function __construct()
+        {
+            echo '<body>';
+        }
+
         public function BodyRender(): void{
             $includeDir = ".".DIRECTORY_SEPARATOR."Model".DIRECTORY_SEPARATOR;
             $includeDefault = $includeDir."home.php";
@@ -83,6 +90,12 @@
             } else{
                 include($includeDefault);
             }
+        }
+
+        function __destruct()
+        {
+            ExternalFileInclude::BottomJavascript();
+            echo '</body>';
         }
     }
 

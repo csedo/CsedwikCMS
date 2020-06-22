@@ -23,5 +23,13 @@
 
         // !!IMPORTANT SETTINGS!! //
         public static string $SiteGenerator_HtmlLang = "HU";
+
+        //Mail setting
+        public static string $Mail_DefaultSender = "";
+        public static string $Mail_Host = "";
+        public static string $Mail_Username = "";
+        public static string $Mail_Password = "";
+        public static $Mail_IsReplyTo = true;
+        public static string $Mail_AddReplyTo = "";
     }
 ?>

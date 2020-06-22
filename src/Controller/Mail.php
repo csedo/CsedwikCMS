@@ -15,18 +15,16 @@
 			require 'Lib/PHPMailer/PHPMailer.php';
 			require 'Lib/PHPMailer/SMTP.php';
 		
-			$defaultSender = 'Hififutár';
-		
 			$this->mail = new PHPMailer();
 			$this->mail->isSMTP();
-			$this->mail->Host       = 'server.hifi-station.hu';
+			$this->mail->Host       = Config::$Mail_Host;
 			$this->mail->SMTPAuth   = true;
-			$this->mail->Username   = 'noreply@hifi-station.hu';
-			$this->mail->Password   = '5KTAejjJqa#G2';
+			$this->mail->Username   = Config::$Mail_Username;
+			$this->mail->Password   = Config::$Mail_Password;
 			$this->mail->CharSet = 'UTF-8';
 			$this->mail->Port       = 465;
 			$this->mail->SMTPSecure = "ssl";
-			$this->mail->setFrom('noreply@hifi-station.hu', $defaultSender);	
+			$this->mail->setFrom(Config::$Mail_Username, Config::$Mail_DefaultSender);
 			$this->mail->SMTPOptions = array(
 				'ssl' => array(
 					'verify_peer' => false,
@@ -38,7 +36,10 @@
 
 		private function MessageGenerator($to,$subject,$message){
 			$this->mail->addAddress($to);
-			$this->mail->addReplyTo('bolt@hifi-station.hu', 'Hifi Station Kft');
+			if(Config::$Mail_IsReplyTo){
+                $this->mail->addReplyTo(Config::$Mail_AddReplyTo, Config::$Mail_DefaultSender);
+            }
+
 		    $this->mail->isHTML(true);
 		    $this->mail->Subject = $subject;
 		    $this->mail->Body    = $message;
