@@ -14,6 +14,7 @@
         }
 
         protected function SessionName(){
+            $this->SessionName = Config::$SessionController_SessionName;
             if(!empty($this->SessionName)){
                 session_name($this->SessionName);
             } else {

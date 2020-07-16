@@ -59,7 +59,7 @@
                     dataForm.append("method","'.$this->method.'")
                     dataForm.append("token","'.SessionController::CSRFToken().'")
                     $.ajax({
-                        url: "ajax/AjaxRequestHandler.php",
+                        url: "Controller/AjaxRequestHandler.php",
                         type: "POST",
                         data: dataForm,
                         contentType: false,

@@ -1,7 +1,7 @@
 <?php 
     require_once(dirname(__FILE__). DIRECTORY_SEPARATOR .'ClassAutoLoader.php');
-    new ClassAutoloader; 
-    PHPHeader::Init();
+    new ClassAutoloader;
+    SessionController::InitSession();
     
     //Remote Procedural Call
     class rpc {
