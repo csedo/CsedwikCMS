@@ -1,3 +1,3 @@
 <?php
-    echo 'asd';
+    SiteGenerator::ViewInclude('home');
 ?>
