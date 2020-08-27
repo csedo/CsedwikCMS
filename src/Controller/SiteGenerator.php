@@ -102,10 +102,10 @@
     Class ElementAssets{
 
         static function StyleInclude($filename){
-            echo '<link href="Assets/css/'.$filename.'" rel="stylesheet" type="text/css" />';
+            echo '<link href="assets/css/'.$filename.'" rel="stylesheet" type="text/css" />';
         }
 
         static function ScriptInclude($filename){
-            echo '<script src="Assets/js/'.$filename.'"></script>';
+            echo '<script src="assets/js/'.$filename.'"></script>';
         }
     }
