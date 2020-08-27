@@ -1,6 +1,6 @@
 <?php
 
-    class config {
+    class Config {
         //Database settings
         // You can use your own MySQL or MariaDB server for database connection
         public static string $DatabaseController_host = "HOST";
